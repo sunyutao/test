@@ -1,7 +1,6 @@
 const Koa = require('koa')
+const InitManager = require('./core/init')
 const app = new Koa()
+InitManager.initCore(app)
 app.listen(3000)
 
-app.use( ()=> {
-    console.log('哈哈哈哈哈')
-})
