@@ -1,5 +1,5 @@
 const Router = require('@koa/router')
-const requireDirectory = require('require-directory')
+const requireDirectory = require('require-directory') // 自动化导入
 class InitMasnager {
     static initCore(app) {
         InitMasnager.app = app

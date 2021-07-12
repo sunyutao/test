@@ -1,8 +1,9 @@
 const Router = require('@koa/router')
 const router = new Router()
-router.get('/book/latest',(ctx,next) => {
+router.post('/book/latest',(ctx,next) => {
+    console.log(ctx.request.query.a)
     ctx.body = {
-        key: 'book'
+        key: a
     }
 })
 module.exports = router
