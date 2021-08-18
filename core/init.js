@@ -2,7 +2,7 @@
  * @Author: huangl
  * @Date: 2021-08-17 13:58:50
  * @LastEditors: huangl
- * @LastEditTime: 2021-08-17 14:48:15
+ * @LastEditTime: 2021-08-18 17:43:20
  * @Description: file content
  * @FilePath: \test\core\init.js
  */
@@ -12,6 +12,12 @@ class InitMasnager {
     static initCore(app) {
         InitMasnager.app = app
         InitMasnager.initLoadRouters()
+        InitMasnager.loadConfig()
+    }
+    static loadConfig(path = '') {
+        const configPath = path || `${process.cwd()}/config/config.js`
+        const config = require(configPath)
+        global.config = config
     }
     static initLoadRouters() {
         const apiDirectory = `${process.cwd()}/app`

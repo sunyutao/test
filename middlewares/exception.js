@@ -2,7 +2,7 @@
  * @Author: huangl
  * @Date: 2021-08-17 13:58:50
  * @LastEditors: huangl
- * @LastEditTime: 2021-08-17 17:46:55
+ * @LastEditTime: 2021-08-18 17:47:21
  * @Description: file content
  * @FilePath: \test\middlewares\exception.js
  */
@@ -11,6 +11,9 @@ const catchError = async (ctx, next) => {
     try {
         await next()
     } catch (error) {
+        if(global.config.environment === 'dev') {
+            throw error;
+        }
         if(error instanceof HttpException) {
             ctx.body = {
                 msg: error.msg,
